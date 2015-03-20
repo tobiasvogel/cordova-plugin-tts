@@ -8,7 +8,7 @@
  *
  */
 
-package tv.pkg-repository.plugins.tts;
+package tv.pkgrepository.plugins.tts;
 
 import java.util.HashMap;
 import java.util.Locale;
