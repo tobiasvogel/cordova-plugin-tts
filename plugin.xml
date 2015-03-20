@@ -30,7 +30,7 @@
   <platform name="android">
     <config-file target="config.xml" parent="/*">
       <feature name="TTS">
-        <param name="android-package" value="tv.pkgrepository.plugins.tts" />
+        <param name="android-package" value="tv.pkgrepository.plugins.tts.TTS" />
         <param name="onload" value="true" />
       </feature>
     </config-file>
