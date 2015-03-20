@@ -2,7 +2,7 @@
 <plugin
   xmlns="http://apache.org/cordova/ns/plugins/1.0"
   xmlns:android="http://schemas.android.com/apk/res/android"
-  id="io.cordova.plugins.tts"
+  id="tv.pkg-repository.plugins.tts"
   version="0.1.0">
   <name>TTS</name>
   <description>Cordova Text-to-Speech Plugin</description>
@@ -30,11 +30,11 @@
   <platform name="android">
     <config-file target="config.xml" parent="/*">
       <feature name="TTS">
-        <param name="android-package" value="io.cordova.plugins.tts" />
+        <param name="android-package" value="tv.pkg-repository.plugins.tts" />
         <param name="onload" value="true" />
       </feature>
     </config-file>
 
-    <source-file src="src/android/TTS.java" target-dir="src/io/cordova/plugins/tts" />
+    <source-file src="src/android/TTS.java" target-dir="src/tv/pkg-repository/plugins/tts" />
   </platform>
 </plugin>

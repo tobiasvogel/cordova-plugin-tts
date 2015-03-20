@@ -17,15 +17,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.util.log;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
-import android.speech.tts.TextToSpeech.OnUtteranceCompletedListener;
+import android.speech.tts.UtteranceProgressListener;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
 
-public class TTS extends CordovaPlugin implements OnInitListener, OnUtteranceCompletedListener {
+public class TTS extends CordovaPlugin implements OnInitListener {
 
     private static final String LOG_TAG = "TTS";
     private static final int STOPPED = 0;
@@ -189,35 +190,31 @@ public class TTS extends CordovaPlugin implements OnInitListener, OnUtteranceCom
             state = TTS.STARTED;
             PluginResult result = new PluginResult(PluginResult.Status.OK, TTS.STARTED);
             result.setKeepCallback(false);
-            //this.success(result, this.startupCallbackId);
             this.startupCallbackContext.sendPluginResult(result);
-            mTts.setOnUtteranceCompletedListener(this);
-//            Putting this code in hear as a place holder. When everything moves to API level 15 or greater
-//            we'll switch over to this way of trackign progress.
-//            mTts.setOnUtteranceProgressListener(new UtteranceProgressListener() {
-//
-//                @Override
-//                public void onDone(String utteranceId) {
-//                    Log.d(LOG_TAG, "got completed utterance");
-//                    PluginResult result = new PluginResult(PluginResult.Status.OK);
-//                    result.setKeepCallback(false);
-//                    callbackContext.sendPluginResult(result);        
-//                }
-//
-//                @Override
-//                public void onError(String utteranceId) {
-//                    Log.d(LOG_TAG, "got utterance error");
-//                    PluginResult result = new PluginResult(PluginResult.Status.ERROR);
-//                    result.setKeepCallback(false);
-//                    callbackContext.sendPluginResult(result);        
-//                }
-//
-//                @Override
-//                public void onStart(String utteranceId) {
-//                    Log.d(LOG_TAG, "started talking");
-//                }
-//                
-//            });
+            mTts.setOnUtteranceProgressListener(new UtteranceProgressListener() {
+
+                @Override
+                public void onDone(String utteranceId) {
+                    Log.d(LOG_TAG, "got completed utterance");
+                    PluginResult result = new PluginResult(PluginResult.Status.OK);
+                    result.setKeepCallback(false);
+                    callbackContext.sendPluginResult(result);        
+                }
+
+                @Override
+                public void onError(String utteranceId) {
+                    Log.d(LOG_TAG, "got utterance error");
+                    PluginResult result = new PluginResult(PluginResult.Status.ERROR);
+                    result.setKeepCallback(false);
+                    callbackContext.sendPluginResult(result);        
+                }
+
+                @Override
+                public void onStart(String utteranceId) {
+                    Log.d(LOG_TAG, "started talking");
+                }
+                
+            });
         }
         else if (status == TextToSpeech.ERROR) {
             state = TTS.STOPPED;
