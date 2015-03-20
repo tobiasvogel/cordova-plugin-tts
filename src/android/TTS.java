@@ -8,7 +8,7 @@
  *
  */
 
-package io.cordova.plugins.tts;
+package tv.pkg-repository.plugins.tts;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -17,7 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.util.log;
+import android.util.Log;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.speech.tts.UtteranceProgressListener;
