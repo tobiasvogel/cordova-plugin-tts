@@ -8,7 +8,7 @@
  *
  */
 
-package com.phonegap.plugins.speech;
+package io.cordova.plugins.tts;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -21,9 +21,9 @@ import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.speech.tts.TextToSpeech.OnUtteranceCompletedListener;
 
-import org.apache.cordova.api.CallbackContext;
-import org.apache.cordova.api.CordovaPlugin;
-import org.apache.cordova.api.PluginResult;
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.PluginResult;
 
 public class TTS extends CordovaPlugin implements OnInitListener, OnUtteranceCompletedListener {
 
