@@ -2,15 +2,20 @@
 <plugin
   xmlns="http://apache.org/cordova/ns/plugins/1.0"
   xmlns:android="http://schemas.android.com/apk/res/android"
-  id="tv.pkgrepository.plugins.tts"
-  version="0.1.0">
-  <name>TTS</name>
-  <description>Cordova Text-to-Speech Plugin</description>
-  <author>Tobias Vogel et al.</author>
+  id="http://cordova.io/plugins/TTS"
+  version="0.3.0">
+  <name short="TTS 0.3">
+	Cordova Text-To-Speech Plugin.
+  </name>
+  <description>
+	Cordova Text-to-Speech Plugin, running on Android using the "Google Now"-Voice and on iOS using the Siri-Synthesizer.
+	This Plugin is based on the original TTS-Plugin by Simon MacDonald (https://github.com/macdonst/TTS).
+  </description>
+  <author email="tobias.vogel@linux.com">Tobias Vogel</author>
   <license>BSD</license>
   <keywords>cordova,tts,text-to-speech</keywords>
   <asset src="www/tts.js" target="js/tts.js" />
-  <js-module src="www/tts.js" name="tts">
+  <js-module src="www/js/tts.js" name="tts">
     <clobbers target="TTS" />
   </js-module>
 
@@ -30,11 +35,11 @@
   <platform name="android">
     <config-file target="config.xml" parent="/*">
       <feature name="TTS">
-        <param name="android-package" value="tv.pkgrepository.plugins.tts.TTS" />
+        <param name="android-package" value="io.cordova.plugins.TTS" />
         <param name="onload" value="true" />
       </feature>
     </config-file>
 
-    <source-file src="src/android/TTS.java" target-dir="src/tv/pkgrepository/plugins/tts" />
+    <source-file src="src/android/TTS.java" target-dir="src/io/cordova/plugins/tts" />
   </platform>
 </plugin>

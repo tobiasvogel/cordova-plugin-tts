@@ -13,9 +13,14 @@
  * Modified by Murray Macdonald (murray@workgroup.ca) on 2012/05/30 to add pitch(), speed(), stop(), and interrupt() methods.
  */
 
+cordova.define("cordova/plugin/tts",
+  function(require, exports, module) {
+    var exec = require("cordova/exec");
+
 /**
  * Constructor
  */
+
 function TTS() {
 }
 
@@ -141,13 +146,21 @@ TTS.prototype.setLanguage = function(lang, successCallback, errorCallback) {
      return cordova.exec(successCallback, errorCallback, "TTS", "setLanguage", [lang]);
 };
 
+cordova.define("cordova/plugin/ttsconstants",
+  function(require, exports, module) {
+    module.exports = {
+      STOPPED: 0,
+      INITIALIZING: 1,
+      STARTED: 2
+    };
+});
 /**
- * Load TTS
- */
-
-if(!window.plugins) {
-    window.plugins = {};
+* Load TTS
+*/
+  if(!window.plugins) {
+  window.plugins = {};
 }
 if (!window.plugins.tts) {
-    window.plugins.tts = new TTS();
+  window.plugins.tts = cordova.require("cordova/plugin/tts");
+  window.TTS = cordova.require("cordova/plugin/ttsconstants");
 }

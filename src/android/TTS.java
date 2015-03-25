@@ -8,7 +8,7 @@
  *
  */
 
-package tv.pkgrepository.plugins.tts;
+package io.cordova.plugins.TTS;
 
 import java.util.HashMap;
 import java.util.Locale;
