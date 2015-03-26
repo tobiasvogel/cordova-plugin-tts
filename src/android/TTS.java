@@ -8,7 +8,7 @@
  *
  */
 
-package io.cordova.plugins.TTS;
+package io.cordova.plugins.tts;
 
 import java.util.HashMap;
 import java.util.Locale;

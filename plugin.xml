@@ -15,7 +15,7 @@
   <license>BSD</license>
   <keywords>cordova,tts,text-to-speech</keywords>
   <asset src="www/tts.js" target="js/tts.js" />
-  <js-module src="www/js/tts.js" name="tts">
+  <js-module src="www/tts.js" name="tts">
     <clobbers target="TTS" />
   </js-module>
 
@@ -35,8 +35,7 @@
   <platform name="android">
     <config-file target="config.xml" parent="/*">
       <feature name="TTS">
-        <param name="android-package" value="io.cordova.plugins.TTS" />
-        <param name="onload" value="true" />
+        <param name="android-package" value="io.cordova.plugins.tts.TTS" />
       </feature>
     </config-file>
 

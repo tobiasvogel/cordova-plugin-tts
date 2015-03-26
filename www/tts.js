@@ -12,21 +12,15 @@
  *
  * Modified by Murray Macdonald (murray@workgroup.ca) on 2012/05/30 to add pitch(), speed(), stop(), and interrupt() methods.
  */
+/*
+ * plugin adapted to new Cordova Plugin Interface by Tobias Vogel, <tobias.vogel@linux.com>, 2015
+ *
+ */
 
 cordova.define("cordova/plugin/tts",
   function(require, exports, module) {
     var exec = require("cordova/exec");
-
-/**
- * Constructor
- */
-
-function TTS() {
-}
-
-TTS.STOPPED = 0;
-TTS.INITIALIZING = 1;
-TTS.STARTED = 2;
+      module.exports = {
 
 /**
  * Play the passed in text as synthesized speech
@@ -35,9 +29,9 @@ TTS.STARTED = 2;
  * @param {Object} successCallback
  * @param {Object} errorCallback
  */
-TTS.prototype.speak = function(text, successCallback, errorCallback) {
-     return cordova.exec(successCallback, errorCallback, "TTS", "speak", [text]);
-};
+        speak: function(text, successCallback, errorCallback) {
+          cordova.exec(successCallback, errorCallback, "TTS", "speak", [text]);
+        },
 
 /**
  * Interrupt any existing speech, then speak the passed in text as synthesized speech
@@ -46,9 +40,10 @@ TTS.prototype.speak = function(text, successCallback, errorCallback) {
  * @param {Object} successCallback
  * @param {Object} errorCallback
  */
-TTS.prototype.interrupt = function(text, successCallback, errorCallback) {
-     return cordova.exec(successCallback, errorCallback, "TTS", "interrupt", [text]);
-};
+
+      interrupt: function(text, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "TTS", "interrupt", [text]);
+      },
 
 /**
  * Stop any queued synthesized speech
@@ -57,9 +52,10 @@ TTS.prototype.interrupt = function(text, successCallback, errorCallback) {
  * @param {Object} successCallback
  * @param {Object} errorCallback
  */
-TTS.prototype.stop= function(successCallback, errorCallback) {
-     return cordova.exec(successCallback, errorCallback, "TTS", "stop", []);
-};
+
+      stop: function(successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "TTS", "stop", []);
+      },
 
 /** 
  * Play silence for the number of ms passed in as duration
@@ -68,9 +64,10 @@ TTS.prototype.stop= function(successCallback, errorCallback) {
  * @param {Object} successCallback
  * @param {Object} errorCallback
  */
-TTS.prototype.silence = function(duration, successCallback, errorCallback) {
-     return cordova.exec(successCallback, errorCallback, "TTS", "silence", [duration]);
-};
+
+      silence: function(duration, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "TTS", "silence", [duration]);
+      },
 
 /** 
  * Set speed of speech.  Usable from 30 to 500.  Higher values make little difference.
@@ -79,9 +76,10 @@ TTS.prototype.silence = function(duration, successCallback, errorCallback) {
  * @param {Object} successCallback
  * @param {Object} errorCallback
  */
-TTS.prototype.speed = function(speed, successCallback, errorCallback) {
-     return cordova.exec(successCallback, errorCallback, "TTS", "speed", [speed]);
-};
+
+      speed: function(speed, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "TTS", "speed", [speed]);
+      },
 
 /** 
  * Set pitch of speech.  Useful values are approximately 30 - 300
@@ -90,9 +88,10 @@ TTS.prototype.speed = function(speed, successCallback, errorCallback) {
  * @param {Object} successCallback
  * @param {Object} errorCallback
  */
-TTS.prototype.pitch = function(pitch, successCallback, errorCallback) {
-     return cordova.exec(successCallback, errorCallback, "TTS", "pitch", [pitch]);
-};
+
+      pitch: function(pitch, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "TTS", "pitch", [pitch]);
+      },
 
 /**
  * Starts up the TTS Service
@@ -100,9 +99,10 @@ TTS.prototype.pitch = function(pitch, successCallback, errorCallback) {
  * @param {Object} successCallback
  * @param {Object} errorCallback
  */
-TTS.prototype.startup = function(successCallback, errorCallback) {
-     return cordova.exec(successCallback, errorCallback, "TTS", "startup", []);
-};
+
+      startup: function(successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "TTS", "startup", []);
+      },
 
 /**
  * Shuts down the TTS Service if you no longer need it.
@@ -110,9 +110,10 @@ TTS.prototype.startup = function(successCallback, errorCallback) {
  * @param {Object} successCallback
  * @param {Object} errorCallback
  */
-TTS.prototype.shutdown = function(successCallback, errorCallback) {
-     return cordova.exec(successCallback, errorCallback, "TTS", "shutdown", []);
-};
+
+      shutdown: function(successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "TTS", "shutdown", []);
+      },
 
 /**
  * Finds out if the language is currently supported by the TTS service.
@@ -121,9 +122,10 @@ TTS.prototype.shutdown = function(successCallback, errorCallback) {
  * @param {Object} successCallback
  * @param {Object} errorCallback
  */
-TTS.prototype.isLanguageAvailable = function(lang, successCallback, errorCallback) {
-     return cordova.exec(successCallback, errorCallback, "TTS", "isLanguageAvailable", [lang]);
-};
+
+      isLanguageAvailable: function(lang, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "TTS", "isLanguageAvailable", [lang]);
+      },
 
 /**
  * Finds out the current language of the TTS service.
@@ -131,9 +133,10 @@ TTS.prototype.isLanguageAvailable = function(lang, successCallback, errorCallbac
  * @param {Object} successCallback
  * @param {Object} errorCallback
  */
-TTS.prototype.getLanguage = function(successCallback, errorCallback) {
-     return cordova.exec(successCallback, errorCallback, "TTS", "getLanguage", []);
-};
+
+      getLanguage: function(successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "TTS", "getLanguage", []);
+      },
 
 /**
  * Sets the language of the TTS service.
@@ -142,9 +145,13 @@ TTS.prototype.getLanguage = function(successCallback, errorCallback) {
  * @param {Object} successCallback
  * @param {Object} errorCallback
  */
-TTS.prototype.setLanguage = function(lang, successCallback, errorCallback) {
-     return cordova.exec(successCallback, errorCallback, "TTS", "setLanguage", [lang]);
-};
+
+      setLanguage: function(lang, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "TTS", "setLanguage", [lang]);
+      }
+
+    };
+});
 
 cordova.define("cordova/plugin/ttsconstants",
   function(require, exports, module) {
@@ -153,7 +160,7 @@ cordova.define("cordova/plugin/ttsconstants",
       INITIALIZING: 1,
       STARTED: 2
     };
-});
+ });
 /**
 * Load TTS
 */
