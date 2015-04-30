@@ -1,0 +1,30 @@
+{
+  "name": "cordova-plugin-tts",
+  "version": "0.3.0",
+  "description": "\r\n\tCordova Text-to-Speech Plugin, running on Android using the \"Google Now\"-Voice and on iOS using the Siri-Synthesizer.\r\n\tThis Plugin is based on the original TTS-Plugin by Simon MacDonald (https://github.com/macdonst/TTS).\r\n  ",
+  "cordova": {
+    "id": "io.cordova.plugins.TTS",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tobiasvogel/cordova-plugin-tts.git"
+  },
+  "keywords": [
+    "cordova",
+    "tts",
+    "text-to-speech",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "author": "Tobias Vogel",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/tobiasvogel/cordova-plugin-tts/issues"
+  },
+  "homepage": "https://github.com/tobiasvogel/cordova-plugin-tts"
+}
